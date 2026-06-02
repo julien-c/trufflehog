@@ -772,6 +772,7 @@ import (
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/timecamp"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/timezoneapi"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/tineswebhook"
+	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/tly"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/tmetric"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/todoist"
 	"github.com/trufflesecurity/trufflehog/v3/pkg/detectors/tokeet"
@@ -1669,6 +1670,7 @@ func buildDetectorList() []detectors.Detector {
 		&timecamp.Scanner{},
 		&timezoneapi.Scanner{},
 		&tineswebhook.Scanner{},
+		&tly.Scanner{},
 		&tmetric.Scanner{},
 		&todoist.Scanner{},
 		// &toggltrack.Scanner{},
@@ -1778,6 +1780,8 @@ func buildDetectorList() []detectors.Detector {
 			return !feature.CloudinaryDetectorEnabled.Load()
 		case *gitlaboauth2.Scanner:
 			return !feature.GitLabOAuthDetectorEnabled.Load()
+		case *tly.Scanner:
+			return !feature.TlyDetectorEnabled.Load()
 		default:
 			return false
 		}

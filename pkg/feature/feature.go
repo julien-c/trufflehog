@@ -19,6 +19,7 @@ var (
 	PineconeDetectorEnabled        atomic.Bool
 	CloudinaryDetectorEnabled      atomic.Bool
 	GitLabOAuthDetectorEnabled     atomic.Bool
+	TlyDetectorEnabled             atomic.Bool
 )
 
 type AtomicString struct {
